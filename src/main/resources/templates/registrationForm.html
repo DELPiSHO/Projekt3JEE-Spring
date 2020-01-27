@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register new person</title>
+    <link rel="stylesheet" th:href="@{/registrationForm.css}" />
+</head>
+<body>
+    <h1>Register new account</h1>
+    <form method="POST" th:action="@{/registrationForm}" th:object="${person}">
+        <h2>Registration Form: </h2>
+        <div th:if="${#fields.hasErrors()}">
+          <span class="validationError">
+             Please correct the problems below and resubmit.
+          </span>
+        </div>
+        <label for="nick">Nick:</label>
+        <input type="text" th:field="*{nick}"/>
+
+        <span class="validationError"
+            th:if="${#fields.hasErrors('nick')}"
+            th:errors="*{nick}">Nick Error
+        </span>
+        <br/>
+
+        <label for="password">Password:</label>
+        <input type="password" th:field="*{password}"/>
+
+        <span class="validationError"
+              th:if="${#fields.hasErrors('password')}"
+              th:errors="*{password}">Password Error
+        </span>
+        <br/>
+        <label for="email">Email:</label>
+        <input type="text" th:field="*{email}"/>
+
+        <span class="validationError"
+              th:if="${#fields.hasErrors('email')}"
+              th:errors="*{email}">Email Error
+        </span>
+        <br/>
+        <input type="submit" value="Submit"/>
+    </form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+body {
+    background: aquamarine;
+}
+h2{
+    font-family: "Calibri";
+    font-size: 30pt;
+    font-style: normal;
+    font-weight: bold;
+    color: darkgreen;
+    text-align: center;
+    text-decoration: underline;
+}
+h3 {
+    font-family: "Calibri";
+    font-size: 30pt;
+    font-style: normal;
+    font-weight: bold;
+    color: blue;
+    text-align: left;
+    text-decoration: Menu;
+}
+li {
+    float: bottom;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 13px;
+    text-decoration: none;
+    background-color: darkgreen;
+}
+li a:hover {
+    background-color: #111;
+}

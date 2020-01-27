@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link rel="stylesheet" th:href="@{/account.css}" />
+</head>
+<body>
+<h2>Account details</h2>
+<span th:if="${admin}"><h4>Hello admin!</h4></span>
+<h3 th:text="${nick}">Your nick:</h3>
+<h3 th:text="${email}"> Your email:</h3>
+<ul>
+    <span th:if="${admin}"><p class="menu"><a class="menu" href="/adminPanel">Admin Panel</a></p></span>
+    <p class="menu"><a class="menu" href="/messages">Messages</a></p>
+    <p class="menu"><a class="menu" href="/account/edit">Edit profile</a>
+    <p class="menu"><a class="menu" href="/account/logout">Logout</a></p>
+    <span th:unless="${admin}"><p class="menu"> <a class="menu" href="/account/delete">Delete account</a></p></span>
+</ul>
+<div>Projekt 2, Yauheni Dzianisau </div>
+</body>
+</html>

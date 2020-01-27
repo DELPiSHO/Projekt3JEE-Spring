@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit person</title>
+    <link rel="stylesheet" th:href="@{/accountEdit.css}" />
+</head>
+<body>
+<h1>Edit Account</h1>
+<form action="#" th:action="@{/adminPanel/replace}" th:object="${person}" method="post">
+    <div th:if="${#fields.hasErrors()}">
+          <span class="validationError">
+             Please correct the problems below and resubmit.
+          </span>
+    </div>
+
+    <input type="hidden" th:field="${person.id}" id="id">
+
+    <label for="nick">Nick:</label>
+    <input type="text" th:field="${person.nick}" id="nick" placeholder="Nick">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('nick')}"
+          th:errors="*{nick}">Nick Error
+    </span>
+    <br/>
+
+    <label for="password">Password:</label>
+    <input type="text" th:field="${person.password}" id="password" placeholder="Password">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('password')}"
+          th:errors="*{password}">Password Error
+    </span>
+    <br/>
+
+    <label for="email">Email:</label>
+    <input type="text" th:field="${person.email}" id="email" placeholder="Your email">
+    <span class="validationError"
+          th:if="${#fields.hasErrors('email')}"
+          th:errors="*{email}">Email Error
+    </span>
+    <br/>
+    <input type="submit" value="Edit Account">
+</form>
+</body>
+</html>

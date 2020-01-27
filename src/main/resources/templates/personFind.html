@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Person</title>
+    <link rel="stylesheet" th:href="@{/personFind.css}" />
+</head>
+<body>
+<h1>Find Person</h1>
+<form action="#" th:action="@{/adminPanel/findResults}" th:object="${person}" method="post">
+    <label for="nick">Nick:</label>
+    <input type="text" th:field="*{nick}" id="nick" placeholder="nick">
+    <br>
+    <input type="submit" value="Find Person Account">
+</form>
+</body>
+</html>

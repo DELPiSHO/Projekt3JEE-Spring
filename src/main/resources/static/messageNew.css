@@ -1,0 +1,20 @@
+body {
+    background: aquamarine;
+}
+li {
+    float: bottom;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 13px;
+    text-decoration: none;
+    background-color: darkgreen;
+}
+li a:hover {
+    background-color: #111;
+}
+span.validationError {
+    color: blue;
+}

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Find Message</title>
+    <link rel="stylesheet" th:href="@{/messageFind.css}" />
+</head>
+<body>
+<h1>Find Person</h1>
+<form action="#" th:action="@{/messages/findResults}" th:object="${message}" method="post">
+    <label for="content">Content:</label>
+    <input type="text" th:field="*{content}" id="content" placeholder="content">
+    <br>
+    <input type="submit" value="Find Message">
+</form>
+</body>
+</html>

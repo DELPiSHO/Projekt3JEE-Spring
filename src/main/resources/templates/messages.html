@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Messages</title>
+    <link rel="stylesheet" th:href="@{/messages.css}" />
+</head>
+<body>
+<span th:if="${admin}"><h4>Hello admin!</h4></span>
+<div th:switch="${messages}">
+    <h1 th:case="null">No messages</br>
+        <p class="menu"><a class="menu" href="/account">Back</a>
+    </h1>
+
+    <div th:case="*">
+        <h2>Messages </h2>
+        <ul>
+            <li class="menu"><a class="menu" href="/messages/new">New Message</a></li>
+            <li class="menu"><a class="menu" href="/messages/find">Find Message</a></li>
+            <li class="menu>"><a class="menu" href="/messages/">Reset</a></li>
+            <li class="menu"><a class="menu" href="/account">Back</a></li>
+            <li class="menu"><a class="menu" href="account/logout">Logout</a></li>
+        </ul>
+        <table class="ListOfMessages">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Author</th>
+                <th>Message</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="message : ${messages}">
+                <td th:text="${message.createDate}?${#dates.format(message.createDate, 'yyyy-MM-dd hh:mm')}"></td>
+                <td><a th:href="@{/account/info/{id}(id=${message.id_person})}" th:text="${message.id_person}"></a></td>
+                <td th:text="${message.content}"></td>
+
+                <span th:if="${message.id_person==currentId}">
+                    <td><a th:href="@{/messages/edit/{id}(id=${message.id})}">Edit</a></td>
+                    <td><a th:href="@{/messages/delete/{id}(id=${message.id})}">Delete</a></td></span>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>

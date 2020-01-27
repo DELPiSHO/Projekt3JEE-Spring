@@ -1,0 +1,26 @@
+h1 {
+    font-family: Calibri;
+    font-size: 25pt;
+    font-style: normal;
+    font-weight: bold;
+    color:SlateBlue;
+    text-align: center;
+    text-decoration: underline
+}
+span.validationError {
+    color: blue;
+}
+body {
+    background: aquamarine;
+}
+label {
+    display: inline-block;
+    width: 6em;
+    padding: 0 1em;
+    text-align: right;
+}
+label, input {
+    color: #333;
+    font: 14px/20px Calibri;
+}
+

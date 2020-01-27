@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login page</title>
+    <link rel="stylesheet" th:href="@{/loginForm.css}" />
+</head>
+<body>
+<h1>Login</h1>
+<!--/*@thymesVar id="personLogin" type="com.example.Projekt2.Domain"*/-->
+<form action="#" th:action="@{/loginForm}" th:object="${PersonLogin}" method="post">
+    <div th:if="${#fields.hasErrors()}">
+          <span class="validationError">
+             Please correct the problems below and resubmit.
+          </span>
+    </div>
+    <label>Nick:</label>
+    <input type="text" th:field="*{nick}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('nick')}"
+          th:errors="*{nick}">Nick Error
+        </span>
+    <br/>
+    <label>Password:</label>
+    <input type="password" th:field="*{password}"/>
+    <span class="validationError"
+          th:if="${#fields.hasErrors('password')}"
+          th:errors="*{password}">Password Error
+        </span>
+    <br/>
+    <input type="submit" value="Login"/>
+<h2><a class="menu" th:href="@{/registrationForm}">Register new person</a></h2>
+
+</body>
+</html>

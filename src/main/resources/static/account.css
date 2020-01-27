@@ -1,0 +1,54 @@
+body {
+    background: aquamarine;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkgreen;
+}
+p {
+    float: left;
+}
+p a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 20px 16px;
+    text-decoration: none;
+}
+p a:hover {
+    background-color: #111;
+}
+h2{
+    font-family: Calibri;
+    font-size: 25pt;
+    font-style: normal;
+    font-weight: bold;
+    color:SlateBlue;
+    text-align: center;
+    text-decoration: underline;
+}
+h4{
+    font-family: Calibri;
+    font-size: 25pt;
+    font-style: normal;
+    font-weight: bold;
+    color: deepskyblue;
+    text-align: center;
+    text-decoration: underline;
+}
+h3{
+    color: blue;
+    font-style: italic;
+}
+
+div {
+    position: fixed;
+    left: 0; bottom: 100%;
+    padding: 10px;
+    background: aliceblue;
+    color: limegreen;
+    width: 100%;
+}

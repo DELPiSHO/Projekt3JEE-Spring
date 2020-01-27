@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" th:href="@{/adminPanel.css}" />
+</head>
+<body>
+<div th:switch="${accounts}">
+    <h2 th:case="null">No accounts</br>
+        <p class="menu"><a class="menu" href="/adminPanel">Back</a>
+    </h2>
+    <div th:case="*">
+        <h3>Admin Panel</h3>
+        <ul>
+            <li class="menu"><a class="menu" href="/adminPanel/find">Find a person</a></li>
+            <li class="menu>"><a class="menu" href="/adminPanel/">Reset</a></li>
+            <li class="menu"> <a class="menu" href="/adminPanel/csv">Export persons</a></li>
+            <li class="menu"><a class="menu" href="/account">MainPage</a></li>
+        </ul>
+        <table class="accountList">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nick</th>
+                <th>Email</th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="person : ${accounts}">
+                <td th:text="${person.id}"></td>
+                <!--/*@thymesVar id="nick" type="com.example.Projekt2.Domain.Person"*/-->
+                <td th:text="${person.nick}"></td>
+                <td th:text="${person.email}"></td>
+                <td><a th:href="@{/adminPanel/edit/{id}(id=${person.id})}">Edit</a></td>
+                <td><a th:href="@{/adminPanel/json/{id}(id=${person.id})}">JSON</a></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
